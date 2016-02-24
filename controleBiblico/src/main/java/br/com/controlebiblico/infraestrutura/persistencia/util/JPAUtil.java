@@ -1,4 +1,4 @@
-package br.com.controlebiblico.infraestrutura.persistencia;
+package br.com.controlebiblico.infraestrutura.persistencia.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

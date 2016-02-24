@@ -10,6 +10,8 @@ import org.junit.Test;
 import br.com.controlebiblico.dominio.entidade.LeituraRealizada;
 import br.com.controlebiblico.dominio.entidade.Livros;
 import br.com.controlebiblico.dominio.entidade.Login;
+import br.com.controlebiblico.infraestrutura.persistencia.util.JPAUtil;
+
 import javax.persistence.Query;
 
 
