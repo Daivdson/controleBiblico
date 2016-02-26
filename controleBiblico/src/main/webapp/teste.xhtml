@@ -5,9 +5,27 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<body>
-<h2>Vamos que vamos</h2>
-
-</body>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meu primeiro JSF</title>
+</h:head>
+<f:view>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText id="nome" value="#{loginBean.usuario.nomeLogin}" />
+				
+				<h:outputLabel value="Login" for="login" />
+				<h:inputText id="login"  value="#{loginBean.usuario.login}" />
+				
+				<h:outputLabel value="Senha" for="senha" />
+				<h:inputText id="senha" value="#{loginBean.usuario.senha}" />
+				
+				<h:commandButton value="Gravar" action="#{loginBean.gravar}" >
+					<f:ajax render="@form" execute="@form" />
+				</h:commandButton>
+			</h:panelGrid>
+		</h:form>
+</f:view>
 
 </html>

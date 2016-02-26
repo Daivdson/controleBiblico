@@ -23,7 +23,7 @@ public class LeituraRealizada {
 	
 	//@Column (name = "022_id_usuario")
 	@ManyToOne //relacionamento das tabelas de :: MUITOS PARA UM
-	private Login login;
+	private Usuario login;
 	
 	//@Column (name = "023_id_livro")
 	@ManyToMany //relacionameno das tabelas de:: MUITOS PARA MUITOS
@@ -49,11 +49,11 @@ public class LeituraRealizada {
 		this.idLeituraRealizada = idLeituraRealizada;
 	}
 
-	public Login getLogin() {
+	public Usuario getLogin() {
 		return login;
 	}
 
-	public void setLogin(Login login) {
+	public void setLogin(Usuario login) {
 		this.login = login;
 	}
 

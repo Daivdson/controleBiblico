@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 import org.h2.command.ddl.AlterUser;
 
-import br.com.controlebiblico.dominio.entidade.Login;
+import br.com.controlebiblico.dominio.entidade.Usuario;
 import br.com.controlebiblico.infraestrutura.persistencia.dao.impl.LoginDAO;
 import br.com.controlebiblico.infraestrutura.persistencia.util.JPAUtil;
 
@@ -19,21 +19,21 @@ public class LoginRepositorio {
 		DAO = new LoginDAO(em);
 	}
 	
-	public Login buscarPorId(Long id){
+	public Usuario buscarPorId(Long id){
 		criarDAOeEM();
-		Login l = DAO.buscarPorId(id);
+		Usuario l = DAO.buscarPorId(id);
 		em.close();
 		return l;
 	}
 	
-	public List<Login> buscarTodos(){
+	public List<Usuario> buscarTodos(){
 		criarDAOeEM();
-		List<Login> lista = DAO.buscarTodos();
+		List<Usuario> lista = DAO.buscarTodos();
 		em.close();
 		return lista;
 	}
 	
-	public void excluir(final Login login){
+	public void excluir(final Usuario login){
 		criarDAOeEM();
 		em.getTransaction().begin();
 		try{
@@ -45,7 +45,7 @@ public class LoginRepositorio {
 		em.close();
 	}
 	
-	public Login salvarOuAtualizar(Login login){
+	public Usuario salvarOuAtualizar(Usuario login){
 		criarDAOeEM();
 		em.getTransaction().begin();
 		try{
@@ -60,9 +60,9 @@ public class LoginRepositorio {
 		return login;
 	}
 	
-	public Login buscarPorLoginESenha(String login, String senha){
+	public Usuario buscarPorLoginESenha(String login, String senha){
 		criarDAOeEM();
-		Login l = DAO.bucarPorLoginESenha(login, senha);
+		Usuario l = DAO.bucarPorLoginESenha(login, senha);
 		em.close();
 		return l;
 	}

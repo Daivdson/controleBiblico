@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import br.com.controlebiblico.dominio.entidade.LeituraRealizada;
 import br.com.controlebiblico.dominio.entidade.Livros;
-import br.com.controlebiblico.dominio.entidade.Login;
+import br.com.controlebiblico.dominio.entidade.Usuario;
 import br.com.controlebiblico.infraestrutura.persistencia.util.JPAUtil;
 
 import javax.persistence.Query;
@@ -30,7 +30,7 @@ public class PersistenciaTesteBiblia {
 	public void persistirUmUsuario(){
 		EntityManager em = JPAUtil.getEntityManager();
 		
-		Login newUser = new Login();
+		Usuario newUser = new Usuario();
 		newUser.setLogin("admin");
 		newUser.setNomeLogin("Administrador");
 		newUser.setSenha("admin");
@@ -41,9 +41,9 @@ public class PersistenciaTesteBiblia {
 		// VERIFICA SE OBJETO FOI CRIADO -- LISTANDO
 		//HQL
 		Query query = em.createQuery("SELECT l FROM Login l");
-		List<Login> list = query.getResultList();
+		List<Usuario> list = query.getResultList();
 		
-		for(Login l: list){
+		for(Usuario l: list){
 			System.out.println(l.getIdLogin()+"--"+l.getLogin()+"--"+l.getNomeLogin()+"--"+l.getSenha());
 		}
 		em.close();

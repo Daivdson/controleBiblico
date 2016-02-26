@@ -1,15 +1,13 @@
 package br.com.controlebiblico.dominio.entidade;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 @Entity
 //@Table(name = "tb_login")
-public class Login{
+public class Usuario{
 	
 	@Id
 	@GeneratedValue
@@ -20,11 +18,22 @@ public class Login{
 	private String nomeLogin;
 	
 	//@Column (name = "003_login")
-	private String Login;
+	private String login;
 	
 	//@Column (name = "004_senha")
 	private String senha;
 	
+	
+	
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public void setIdLogin(Long idLogin) {
+		this.idLogin = idLogin;
+	}
 	public long getIdLogin() {
 		return idLogin;
 	}
@@ -37,12 +46,7 @@ public class Login{
 	public void setNomeLogin(String nomeLogin) {
 		this.nomeLogin = nomeLogin;
 	}
-	public String getLogin() {
-		return Login;
-	}
-	public void setLogin(String login) {
-		Login = login;
-	}
+
 	public String getSenha() {
 		return senha;
 	}

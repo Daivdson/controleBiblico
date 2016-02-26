@@ -4,26 +4,26 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.controlebiblico.dominio.entidade.Login;
+import br.com.controlebiblico.dominio.entidade.Usuario;
 import br.com.controlebiblico.infraestrutura.persistencia.dao.GenericDAO;
 
 public class LoginDAO {
-	private final GenericDAO<Login, Long> DAO;
+	private final GenericDAO<Usuario, Long> DAO;
 	
 	public LoginDAO(EntityManager entityManager){
-		DAO = new GenericDAOHibernate<>(entityManager, Login.class);
+		DAO = new GenericDAOHibernate<>(entityManager, Usuario.class);
 	}
 	
-	public Login buscarPorId(Long id){
+	public Usuario buscarPorId(Long id){
 		return DAO.buscarPorId(id);
 	}
 	
-	public Login bucarPorLoginESenha(String login, String senha){
-		Login exemplo = new Login();
+	public Usuario bucarPorLoginESenha(String login, String senha){
+		Usuario exemplo = new Usuario();
 		exemplo.setLogin(login);
 		exemplo.setSenha(senha);
 		
-		List<Login> list = DAO.buscaPorExemplo(exemplo);
+		List<Usuario> list = DAO.buscaPorExemplo(exemplo);
 		if(list != null && !list.isEmpty()){
 			return list.get(0);
 		}else{
@@ -31,15 +31,15 @@ public class LoginDAO {
 		}
 	}
 	
-	public List<Login> buscarTodos(){
+	public List<Usuario> buscarTodos(){
 		return DAO.buscarTodos();
 	}
 	
-	public void excluir(Login login){
+	public void excluir(Usuario login){
 		DAO.excluir(login);
 	}
 	
-	public Login salvarOuAtualizar(Login login){
+	public Usuario salvarOuAtualizar(Usuario login){
 		return DAO.salvarOuAtualizar(login);
 	}
 

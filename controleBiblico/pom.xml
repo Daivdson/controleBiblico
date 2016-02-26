@@ -82,7 +82,7 @@
   </dependencies>
   
   <build>
-	  <finalName>controleBilico</finalName>
+	  <finalName>controleBiblico</finalName>
 		  <plugins>
 			  <plugin>
 			  <artifactId>maven-war-plugin</artifactId>
