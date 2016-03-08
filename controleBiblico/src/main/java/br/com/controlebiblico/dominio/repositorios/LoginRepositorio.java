@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.h2.command.ddl.AlterUser;
 
 import br.com.controlebiblico.dominio.entidade.Usuario;
 import br.com.controlebiblico.infraestrutura.persistencia.dao.impl.LoginDAO;
@@ -45,11 +44,11 @@ public class LoginRepositorio {
 		em.close();
 	}
 	
-	public Usuario salvarOuAtualizar(Usuario login){
+	public Usuario salvarOuAtualizar(Usuario usuario){
 		criarDAOeEM();
 		em.getTransaction().begin();
 		try{
-			login = DAO.salvarOuAtualizar(login);
+			usuario = DAO.salvarOuAtualizar(usuario);
 			em.getTransaction().commit();
 		}catch (Exception e){
 			em.getTransaction().rollback();
@@ -57,7 +56,7 @@ public class LoginRepositorio {
 		}finally{
 			em.close();
 		}
-		return login;
+		return usuario;
 	}
 	
 	public Usuario buscarPorLoginESenha(String login, String senha){

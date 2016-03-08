@@ -15,7 +15,7 @@ public class Livros {
 	private Long idLivro;
 	
 	//@Column (name = "012_nome")
-	private  String nomeLivro;
+	private String nomeLivro;
 	
 	//@Column (name = "013_tipo")
 	private String tipo;
@@ -28,6 +28,10 @@ public class Livros {
 	
 	//@Column (name ="016_descricao")
 	private String descricaoLivro;
+	
+	
+	
+	
 
 	public Long getIdLivro() {
 		return idLivro;

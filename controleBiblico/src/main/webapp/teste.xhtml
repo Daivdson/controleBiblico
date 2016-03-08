@@ -10,22 +10,63 @@
 	<title>Meu primeiro JSF</title>
 </h:head>
 <f:view>
+	
+	<div class="livros">
 		<h:form>
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Nome" for="nome" />
-				<h:inputText id="nome" value="#{loginBean.usuario.nomeLogin}" />
+			<h2>Livros</h2>
+			<h:panelGrid id="livros" columns="2">
+				<h:outputLabel value="Nome Livro" for="nomeLivro" />
+				<h:inputText id="nomeLivro" value="#{livrosBean.livro.nomeLivro}" />
 				
-				<h:outputLabel value="Login" for="login" />
-				<h:inputText id="login"  value="#{loginBean.usuario.login}" />
+				<h:outputLabel value="Tipo" for="tipo" />
+				<h:inputText id="tipo"  value="#{livrosBean.livro.tipo}" />
 				
-				<h:outputLabel value="Senha" for="senha" />
-				<h:inputText id="senha" value="#{loginBean.usuario.senha}" />
+				<h:outputLabel value="Qtd Capitulos" for="qtdCapitulos" />
+				<h:inputText id="qtdCapitulos" value="#{livrosBean.livro.qtdCapitulos}" />
 				
-				<h:commandButton value="Gravar" action="#{loginBean.gravar}" >
+				<h:outputLabel value="Qtd Versiculos" for="qtdVersiculos" />
+				<h:inputText id="qtdVersiculos" value="#{livrosBean.livro.qtdVersiculos}" />
+				
+				<h:outputLabel value="Descricao" for="descricao" />
+				<h:inputText id="qtdDescricao" value="#{livrosBean.livro.descricaoLivro}" />
+				
+				<h:commandButton  value="Gravar" action="#{livrosBean.gravar}" >
 					<f:ajax render="@form" execute="@form" />
 				</h:commandButton>
 			</h:panelGrid>
+			
+			<h:dataTable var="livro" value="#{livrosBean.livrosL}">
+				<h:column>
+					<f:facet name="header">Id: </f:facet>
+					#{livro.idLivro}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nome Livro: </f:facet>
+					#{livro.nomeLivro}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Tipo: </f:facet>
+					#{livro.tipo}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Qtd Capitulos: </f:facet>
+					#{livro.qtdCapitulos}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Qtd Versiculos: </f:facet>
+					#{livro.qtdVersiculos}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Descrição: </f:facet>
+					#{livro.descricaoLivro}
+				</h:column>
+			
+			</h:dataTable>
+			
 		</h:form>
+	</div>	
+	
+		
 </f:view>
 
 </html>

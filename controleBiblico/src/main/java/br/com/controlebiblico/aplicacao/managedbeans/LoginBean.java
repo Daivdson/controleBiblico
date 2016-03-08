@@ -20,17 +20,23 @@ public class LoginBean {
 	public void gravar(){
 		System.out.println("Login aqui"+usuario);
 		service.salvarOuAtualizar(usuario);
+		usuario = new Usuario();
 		limpar();
+		
 		
 	}
 
+	public Collection<Usuario> getUsuariosL(){
+		if(usuarios == null){
+			usuarios = service.buscarTodos();	
+		}
+		return usuarios;
+	}
+	
 
 	public void limpar(){
 		usuario = new Usuario();
 	}
-
-
-	
 	
 	// metos acessadores
 	public Usuario getUsuario() {
