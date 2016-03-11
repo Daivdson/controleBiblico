@@ -35,25 +35,43 @@ public class LivrosBean {
 	private String[] numCapitulos;
 	//Lista dos capitulos
 	public String[] getNumCapitulosMat(){
+		Arrays.fill(numCapitulos, null);
 		numCapitulos = new String[service.buscarPorLivro("Mateus").getQtdCapitulos()];
-		for (int i = 1; service.buscarPorLivro("Mateus").getQtdCapitulos() >= i ; i++) {
-			getNumCapitulos()[i] = Integer.toString(i);
+		int contCapitulos = 0;
+		int cap = 1;
+		for (int i = 0; i < service.buscarPorLivro("Mateus").getQtdCapitulos() ; i++) {
+			getNumCapitulos()[i] = Integer.toString(cap);
+			contCapitulos = i;
+			cap++;
 		}
+		System.out.println("quantidade de capitulos MATEUS: "+service.buscarPorLivro("Mateus").getQtdCapitulos());
+		System.out.println("VALOR DO I CONTADOR: "+contCapitulos);
 		return getNumCapitulos();
+		
 	}
 	
 	public String[] getNumCapitulosMar(){
+		Arrays.fill(numCapitulos, null);
+		
 		numCapitulos = new String[service.buscarPorLivro("Marcos").getQtdCapitulos()];
-		for (int i = 1; service.buscarPorLivro("Marcos").getQtdCapitulos() >= i  ; i++) {
-			getNumCapitulos()[i] = Integer.toString(i);
+		int cont2 = 0;
+		int cap = 1;
+		for (int i = 0 ; i < service.buscarPorLivro("Marcos").getQtdCapitulos()  ; i++) {
+			getNumCapitulos()[i] = Integer.toString(cap);
+			cont2 = i;
+			cap++;
 		}
+		System.out.println("quantidade de capitulos MARCOS: "+service.buscarPorLivro("Marcos").getQtdCapitulos());
+		System.out.println("VALOR DO I CONTADOR: "+cont2);
 		return getNumCapitulos();
+		
+		
 	}
 	
 
-	public String getMeNumCapitulosInString(){
+	/*public String getMeNumCapitulosInString(){
 		return Arrays.toString(getNumCapitulos());
-	}
+	}*/
 	
 	
 	
